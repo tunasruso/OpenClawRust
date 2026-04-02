@@ -180,6 +180,33 @@ python3 -m src.main commands --limit 10
 python3 -m src.main tools --limit 10
 ```
 
+## Linux Server Install
+
+For a fresh Linux server, use the install script in this repository:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tunasruso/OpenClawRust/main/scripts/install_linux.sh -o install_linux.sh
+chmod +x install_linux.sh
+./install_linux.sh
+```
+
+The script:
+
+- installs system build dependencies
+- installs Rust via `rustup` when missing
+- clones or updates this repository under `~/.local/share/openclawrust`
+- builds the Rust `claw` binary
+- installs `claw` into `~/.local/bin`
+- writes an environment template to `~/.local/share/openclawrust/.env.example`
+
+Supported package managers:
+
+- `apt`
+- `dnf`
+- `yum`
+- `pacman`
+- `zypper`
+
 ## Current Parity Checkpoint
 
 The port now mirrors the archived root-entry file surface, top-level subsystem names, and command/tool inventories much more closely than before. However, it is **not yet** a full runtime-equivalent replacement for the original TypeScript system; the Python tree still contains fewer executable runtime slices than the archived source.
